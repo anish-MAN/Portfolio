@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="services.html">
+    <title>Document</title>
+    <style>
+        
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+#navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: burlywood;
+}
+
+.header-text {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+header h1 span {
+    color: burlywood;
+}
+
+/* Services Section */
+#service {
+    padding: 5rem;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+#service h1{
+    margin-bottom: 10px;
+
+}
+
+#service .cnt {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#service .cnt div {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    max-width: 300px;
+    text-align: left;
+}
+
+#service .cnt div a {
+    text-decoration: none;
+    color: burlywood;
+    transition: color 0.3s;
+}
+
+#service .cnt div a:hover {
+    color: #333;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    /* margin-top: 1rem; */
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav id="navbarTop">
+          <div id="navContainer">
+            <ul class="navbar">
+              <li class="nav-item">
+                    <a class="nav-link" href="portfolio.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="portfolio.html">About</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="services.html">Service</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+                <div class="header-text">
+                  <p>Frontend Developer</p>
+                  <h1>Hi, I'm Anish <span style="color: burlywood;">Maurya From India</span></h1>
+                </div>
+          </div>
+        </nav>
+        </header>
+
+    <div id="service">
+        <div class="container">
+          <h1>My Services</h1>
+          <div class="cnt">
+            <div class="cnt1">
+              <h2>UI/UX DESIGN</h2>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic quasi saepe harum perspiciatis incidunt cumque consequuntur ad voluptas nisi iste!</p>
+              <a href="#learnMore">Learn more...</a>
+            </div>
+            <div class="cnt2">
+              <h2>APP DESIGN</h2>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias reiciendis vero repellat! Molestias quos culpa iusto, porro dolorem sapiente soluta.</p>
+            <a href="#learnMore">Learn more...</a>
+          </div>
+          <div class="cnt3">        
+            <h2>WEB-APP DESIGN</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sequi placeat vel sit voluptas asperiores reprehenderit minus quod illo nam.</p>
+            <a href="#learnMore">Learn more...</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>All Copyrights Reserverd To Anish Maurya; Any Resuse Without Permisson Is Prohibited.</p>
+      </div>
+
+</body>
+</html>

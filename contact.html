@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.html">
+    <title>Document</title>
+    <style>
+
+      /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+#navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: burlywood;
+}
+
+.header-text {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+header h1 span {
+    color: burlywood;
+}
+
+/* Contact Section */
+#contactDiv {
+    padding: 1rem;
+    background: #f4f4f4;
+}
+
+#contactDiv .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+#contactDiv input,
+#contactDiv textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#contactDiv button {
+    padding: 0.5rem 1rem;
+    background: burlywood;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#contactDiv button:hover {
+    background: #333;
+}
+
+#contactDiv .container2 {
+  margin-top: 10%;
+}
+
+#contactDiv .container2 button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#contactDiv .container2 h3 a{
+    text-decoration: none;
+    color: burlywood;
+}
+
+#contactDiv .container2 h3,
+#contactDiv .container2 p {
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+    </style>
+</head>
+<body>
+
+  <header>
+    <nav id="navbarTop">
+      <div id="navContainer">
+        <ul class="navbar">
+          <li class="nav-item">
+                <a class="nav-link" href="#home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+        </ul>
+            <div class="header-text">
+              <p>Frontend Developer</p>
+              <h1>Hi, I'm Anish <span style="color: burlywood;">Maurya From India</span></h1>
+            </div>
+      </div>
+    </nav>
+    </header>
+
+    <div id="contactDiv">
+        <div class="container">
+    
+          <div class="container1">
+            <h1>Contact Me</h1>
+            <form method="post" id="Contactform">
+            <!-- <label for="name">Name: </label> -->
+            <input type="text" name="name" id="name" placeholder="Enter your name"> <br> <br>
+            <!-- <label for="contact">Contact no: </label> -->
+            <input type="number" name="contact" id="contact" placeholder="Enter your contact no"> <br> <br>
+            <!-- <label for="email">E-mail: </label> -->
+            <input type="email" name="email" id="email" placeholder="Enter your Email"> <br> <br>
+            <!-- <label for="message">Message: </label> -->
+            <textarea name="message" id="message">Enter your message :</textarea> <br> <br>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+    
+        <div class="container2">
+          <h3><a href="#">anishmauryaa@gmail.com</a></h3>
+          <p>+91-9325207005</p>
+          <button><a href="#">Insta</a></button>
+          <button><a href="#">FB</a></button>
+          <button><a href="#">Wt'sApp</a></button>
+          <button><a href="#">LinkedIn</a></button>
+        </div>
+      </div>
+      </div>
+    
+      <div class="footer">
+        <p>All Copyrights Reserverd To Anish Maurya; Any Resuse Without Permisson Is Prohibited.</p>
+      </div>
+
+</body>
+</html>

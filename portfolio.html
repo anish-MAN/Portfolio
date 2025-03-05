@@ -1,9 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/portfolio.css">
+    <link rel="stylesheet" href="services.html">
+    <link rel="stylesheet" href="contact.html">
+     <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+#navContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.navbar .nav-link:hover {
+    color: burlywood;
+}
+
+.header-text {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+header h1 span {
+    color: burlywood;
+}
+
+/* About Section */
+#about {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 1rem;
+    align-items: center;
+}
+
+#about img {
+    width: 300px;
+    border-radius: 50%;
+}
+
+#about .container {
+    max-width: 600px;
+}
+
+/* Services Section */
+#service {
+    padding: 2rem;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+#service .cnt {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#service .cnt div {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    max-width: 300px;
+    text-align: left;
+}
+
+#service .cnt div a {
+    text-decoration: none;
+    color: burlywood;
+    transition: color 0.3s;
+}
+
+#service .cnt div a:hover {
+    color: #333;
+}
+
+/* Contact Section */
+#contactDiv {
+    padding: 2rem;
+    background: #f4f4f4;
+}
+
+#contactDiv .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-around;
+}
+
+#contactDiv input,
+#contactDiv textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#contactDiv button {
+    padding: 0.5rem 1rem;
+    background: burlywood;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#contactDiv button:hover {
+    background: #333;
+}
+
+#contactDiv .container2 button a {
+    text-decoration: none;
+    color: #fff;
+}
+
+#contactDiv .container2 h3 a{
+    text-decoration: none;
+    color: burlywood;
+}
+
+#contactDiv .container2 h3,
+#contactDiv .container2 p {
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    #navContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .navbar {
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        gap: 0.5rem;
+    }
+
+    #about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #about img {
+        width: 200px;
+    }
+
+    #about .container {
+        max-width: 100%;
+    }
+
+    #service .cnt {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #service .cnt div {
+        max-width: 100%;
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    #contactDiv .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    #contactDiv .container2 button{
+        margin: 10px;
+    }
+
+    #contactDiv input,
+    #contactDiv textarea {
+        width: 90%;
+    }
+
+    .footer {
+        padding: 1rem;
+    }
+}
+
+/* Tablet Devices (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    #navContainer {
+        padding: 1rem;
+    }
+
+    .navbar {
+        gap: 1rem;
+    }
+
+    #about {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #about img {
+        width: 250px;
+    }
+
+    #service .cnt {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #service .cnt div {
+        max-width: 45%;
+    }
+
+    #contactDiv .container {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    #contactDiv input, #contactDiv textarea {
+        width: 50%;
+    }
+
+    #contactDiv .container1 #Contactform input{
+        width: 100%;
+    }
+
+    #contactDiv .container1 #Contactform textarea{
+        width: 100%;
+    }
+
+    .footer {
+        padding: 1.5rem;
+    }
+}
+
+/* Desktop Devices (769px and up) */
+@media (min-width: 769px) {
+    #navContainer {
+        padding: 2rem;
+    }
+
+    .navbar {
+        gap: 1rem;
+    }
+
+    #about {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #about img {
+        width: 300px;
+    }
+
+    #service .cnt {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #service .cnt div {
+        max-width: 300px;
+    }
+
+    #contactDiv .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    #contactDiv input, #contactDiv textarea {
+        width: 60%;
+    }
+
+    #contactDiv .container1 #Contactform input{
+        width: 100%;
+    }
+
+    #contactDiv .container1 #Contactform textarea{
+        width: 100%;
+    }
+
+    .footer {
+        padding: 2rem;
+    }
+}
+
+     </style>
+
     <title>My Portfolio.</title>
 </head>
 <body>
@@ -13,21 +337,25 @@
     <div id="navContainer">
       <ul class="navbar">
         <li class="nav-item">
-              <a class="nav-link" href="#home">Home</a>
+              <a class="nav-link" href="portfolio.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
+              <a class="nav-link" href="portfolio.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#service">Service</a>
+              <a class="nav-link" href="services.html">Service</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
+              <a class="nav-link" href="projects.html">Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
         </li>
       </ul>
           <div class="header-text">
             <p>Frontend Developer</p>
-            <h1>Hi, I'm Anish <span style="color: burlywood;">Maurya From India</span></h1>
+            <h1>Hi, I'm <span style="color: burlywood;">Anish Maurya</span></h1>
+            <p>Mumbai, India</p>
           </div>
     </div>
   </nav>
@@ -39,57 +367,6 @@
           <h1>About Me</h1> <br>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste porro minus officiis molestias, quod accusamus dolor, blanditiis esse cumque laudantium incidunt. Nisi consectetur quod nobis deleniti qui in nostrum, nam culpa harum laudantium ea rerum corporis illo sint esse facilis odio a. Fuga voluptatum explicabo sapiente consequatur perspiciatis, temporibus ducimus, veritatis quis ut repudiandae animi magnam in minima illum quisquam hic delectus recusandae laudantium est eveniet, commodi eligendi? Qui recusandae veniam totam veritatis vitae quasi mollitia, obcaecati eum doloremque repellat id optio officiis autem voluptate perspiciatis, quas blanditiis, dolorum minus odio commodi sapiente. Recusandae dolor pariatur neque odio ipsa itaque.</p>
     </div>
-  </div>
-  
-    <div id="service">
-      <div class="container">
-        <h1>My Services</h1>
-        <div class="cnt">
-          <div class="cnt1">
-            <h2>UI/UX DESIGN</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic quasi saepe harum perspiciatis incidunt cumque consequuntur ad voluptas nisi iste!</p>
-            <a href="#learnMore">Learn more...</a>
-          </div>
-          <div class="cnt2">
-            <h2>APP DESIGN</h2>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias reiciendis vero repellat! Molestias quos culpa iusto, porro dolorem sapiente soluta.</p>
-          <a href="#learnMore">Learn more...</a>
-        </div>
-        <div class="cnt3">        
-          <h2>WEB-APP DESIGN</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus sequi placeat vel sit voluptas asperiores reprehenderit minus quod illo nam.</p>
-          <a href="#learnMore">Learn more...</a></div>
-        </div>
-      </div>
-    </div>
-  
-  <div id="contactDiv">
-    <div class="container">
-
-      <div class="container1">
-        <h1>Contact Me</h1>
-        <form method="post" id="Contactform">
-        <!-- <label for="name">Name: </label> -->
-        <input type="text" name="name" id="name" placeholder="Enter your name"> <br> <br>
-        <!-- <label for="contact">Contact no: </label> -->
-        <input type="number" name="contact" id="contact" placeholder="Enter your contact no"> <br> <br>
-        <!-- <label for="email">E-mail: </label> -->
-        <input type="email" name="email" id="email" placeholder="Enter your Email"> <br> <br>
-        <!-- <label for="message">Message: </label> -->
-        <textarea name="message" id="message">Enter your message :</textarea> <br> <br>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-
-    <div class="container2">
-      <h3><a href="#">anishmauryaa@gmail.com</a></h3>
-      <p>+91-9325207005</p>
-      <button><a href="#">Insta</a></button>
-      <button><a href="#">FB</a></button>
-      <button><a href="#">Wt'sApp</a></button>
-      <button><a href="#">LinkedIn</a></button>
-    </div>
-  </div>
   </div>
 
   <div class="footer">

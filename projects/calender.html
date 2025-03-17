@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            background: beige;
+            min-height: 100vh;
+            padding: 0 10px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-container {
+            background: white;
+            width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            justify-content: space-between;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .calendar-navigation {
+            display: flex;
+        }
+
+        .calendar-navigation span {
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            user-select: none;
+            color: brown;
+            font-size: 1.5rem;
+            transition: background 0.3s;
+        }
+
+        .calendar-navigation span:hover {
+            background: burlywood;
+        }
+
+        .calendar-body {
+            padding: 10px 20px;
+        }
+
+        .calendar-body ul {
+            list-style: none;
+            flex-wrap: wrap;
+            display: flex;
+            text-align: center;
+        }
+
+        .calendar-weekdays li {
+            font-weight: bold;
+            width: calc(100% / 7);
+            padding: 10px 0;
+        }
+
+        .calendar-dates {
+            margin-top: 10px;
+        }
+
+        .calendar-dates li {
+            width: calc(100% / 7);
+            padding: 10px;
+            cursor: pointer;
+            position: relative;
+            color: gray;
+        }
+
+        .calendar-dates li.inactive {
+            color: lightgray;
+        }
+
+        .calendar-dates li.active {
+            color: black;
+            font-weight: bold;
+        }
+
+        .calendar-dates li::before {
+            content: "";
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .calendar-dates li.active::before {
+            background: burlywood;
+        }
+
+        .calendar-dates li:hover::before {
+            background: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <header class="calendar-header">
+            <p class="calendar-current-date"></p>
+            <div class="calendar-navigation">
+                <span id="calendar-prev">&#10094;</span>
+                <span id="calendar-next">&#10095;</span>
+            </div>
+        </header>
+
+        <div class="calendar-body">
+            <ul class="calendar-weekdays">
+                <li>Sun</li>
+                <li>Mon</li>
+                <li>Tue</li>
+                <li>Wed</li>
+                <li>Thu</li>
+                <li>Fri</li>
+                <li>Sat</li>
+            </ul>
+
+            <ul class="calendar-dates"></ul>
+        </div>
+    </div>
+
+    <script>
+        let date = new Date();
+        let month = date.getMonth();
+        let year = date.getFullYear();
+
+        const currentDate = document.querySelector(".calendar-current-date");
+        const datesContainer = document.querySelector(".calendar-dates");
+        const prevNextBtns = document.querySelectorAll(".calendar-navigation span");
+
+        const months = [
+            "January", "February", "March", "April", "May", "June", 
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        function renderCalendar() {
+            let firstDay = new Date(year, month, 1).getDay();
+            let lastDate = new Date(year, month + 1, 0).getDate();
+            let prevLastDate = new Date(year, month, 0).getDate();
+            let lastDay = new Date(year, month, lastDate).getDay();
+            
+            let liElements = "";
+
+            // Previous month's dates
+            for (let i = firstDay; i > 0; i--) {
+                liElements += `<li class="inactive">${prevLastDate - i + 1}</li>`;
+            }
+
+            // Current month's dates
+            for (let i = 1; i <= lastDate; i++) {
+                let isToday = 
+                    i === date.getDate() && 
+                    month === new Date().getMonth() && 
+                    year === new Date().getFullYear() ? "active" : "";
+                
+                liElements += `<li class="${isToday}">${i}</li>`;
+            }
+
+            // Next month's dates
+            for (let i = lastDay; i < 6; i++) {
+                liElements += `<li class="inactive">${i - lastDay + 1}</li>`;
+            }
+
+            currentDate.innerText = `${months[month]} ${year}`;
+            datesContainer.innerHTML = liElements;
+        }
+
+        renderCalendar();
+
+        prevNextBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                if (btn.id === "calendar-prev") {
+                    month--;
+                    if (month < 0) {
+                        month = 11;
+                        year--;
+                    }
+                } else {
+                    month++;
+                    if (month > 11) {
+                        month = 0;
+                        year++;
+                    }
+                }
+                renderCalendar();
+            });
+        });
+    </script>
+</body>
+</html>

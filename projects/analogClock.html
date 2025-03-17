@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: white;
+            margin: 0;
+        }
+
+        .clock {
+            width: 300px;
+            height: 300px;
+            border: 20px solid black;
+            border-radius: 50%;
+            position: relative;
+            padding: 20px;
+            background: white;
+        }
+
+        .clock-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform: translateY(-3px);
+        }
+
+        .hand {
+            width: 50%;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: all 0.05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+
+        .hour {
+            height: 7px;
+        }
+
+        .minute {
+            height: 5px;
+        }
+
+        .second {
+            height: 2px;
+            background: red;
+        }
+
+        .number {
+            position: absolute;
+            font-size: 25px;
+            transform: translate(-50%, -50%);
+        }
+
+        .number1 {
+            top: 20%;
+            left: 85%;
+        }
+
+        .number2 {
+            top: 35%;
+            left: 92%;
+        }
+
+        .number3 {
+            top: 50%;
+            left: 97%;
+        }
+
+        .number4 {
+            top: 65%;
+            left: 92%;
+        }
+
+        .number5 {
+            top: 80%;
+            left: 85%;
+        }
+
+        .number6 {
+            top: 85%;
+            left: 50%;
+        }
+
+        .number7 {
+            top: 80%;
+            left: 15%;
+        }
+
+        .number8 {
+            top: 65%;
+            left: 8%;
+        }
+
+        .number9 {
+            top: 50%;
+            left: 3%;
+        }
+
+        .number10 {
+            top: 35%;
+            left: 8%;
+        }
+
+        .number11 {
+            top: 20%;
+            left: 15%;
+        }
+
+        .number12 {
+            top: 15%;
+            left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="number number1">1</div>
+            <div class="number number2">2</div>
+            <div class="number number3">3</div>
+            <div class="number number4">4</div>
+            <div class="number number5">5</div>
+            <div class="number number6">6</div>
+            <div class="number number7">7</div>
+            <div class="number number8">8</div>
+            <div class="number number9">9</div>
+            <div class="number number10">10</div>
+            <div class="number number11">11</div>
+            <div class="number number12">12</div>
+            <div class="hand hour"></div>
+            <div class="hand minute"></div>
+            <div class="hand second"></div>
+        </div>
+    </div>
+
+    <script>
+        const hour = document.querySelector(".hour");
+        const minute = document.querySelector(".minute");
+        const second = document.querySelector(".second");
+
+        function setDate() {
+            const now = new Date();
+
+            const getSecond = now.getSeconds();
+            const getMinute = now.getMinutes();
+            const getHour = now.getHours();
+
+            const secondDegree = (getSecond / 60) * 360 + 90;
+            const minuteDegree = (getMinute / 60) * 360 + 90;
+            const hourDegree = (getHour / 12) * 360 + (getMinute / 60) * 30 + 90;
+
+            second.style.transform = `rotate(${secondDegree}deg)`;
+            minute.style.transform = `rotate(${minuteDegree}deg)`;
+            hour.style.transform = `rotate(${hourDegree}deg)`;
+        }
+
+        setDate();
+
+        setInterval(setDate, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: white;
+      }
+      #Calculator {
+        width: 255px;
+        height: 400px;
+        border: 1px solid rgb(133, 131, 131);
+        background-color: white;
+        border-radius: 4px;
+        overflow: hidden;
+        padding: 8px 5px;
+      }
+      #display {
+        height: 60px;
+        width: 95%;
+        text-align: right;
+        font-size: 1.5em;
+        padding: 5px 5px;
+        background: white;
+        border: 1px solid rgb(102, 101, 101);
+        margin: 5px;
+        overflow: hidden;
+        border-radius: 2px;
+      }
+      #keywords {
+        margin: 7px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      #keywords button {
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="Calculator">
+      <input id="display" />
+      <div id="keywords">
+        <button onclick="num(1)">1</button>
+        <button onclick="num(2)">2</button>
+        <button onclick="num(3)">3</button>
+        <button onclick="num(4)">4</button>
+        <button onclick="num(5)">5</button>
+        <button onclick="num(6)">6</button>
+        <button onclick="num(7)">7</button>
+        <button onclick="num(8)">8</button>
+        <button onclick="num(9)">9</button>
+        <button onclick="num('.')">.</button>
+        <button onclick="num(0)">0</button>
+        <button class="operator" onclick="equal()">=</button>
+        <button class="operator0" onclick="num('/')">/</button>
+        <button class="operator1" onclick="num('*')">*</button>
+        <button class="operator2" onclick="num('-')">-</button>
+        <button class="operator3" onclick="num('+')">+</button>
+        <button class="operator5" onclick="clearInp()">C</button>
+        <button class="operator5" onclick="backspace()"><--</button>
+      </div>
+    </div>
+    <script>
+      const display = document.getElementById("display");
+      display.addEventListener("input", () => {
+        expression = display.value;
+      });
+      let expression = "";
+
+      function num(num) {
+        expression += num;
+        display.value = expression;
+      }
+
+      function equal() {
+        display.value = eval(expression);
+        expression = "";
+      }
+
+      function clearInp() {
+        expression = "";
+        display.value = expression;
+      }
+
+      function backspace() {
+        expression = expression.slice(0, expression.length - 1);
+        display.value = expression;
+      }
+    </script>
+  </body>
+</html>

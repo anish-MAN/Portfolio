@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary</title>
+
+<style>
+
+body{
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+}
+
+.container{
+    background-color: brown;
+    padding: 25px;
+    border-radius: 10px;
+    width: 90%;
+    margin: 10px;
+    max-width: 450px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.heading{
+    font-size: 30px;
+}
+
+.input{
+    height: 50px;
+    width: 300px;
+    background-color: white;
+    font-size: 15px;
+    padding: 0 40px;
+    border-radius: 5px;
+}
+
+.meaning-container{
+    display: none;
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">English Dictionary</h1>
+        <input placeholder="Enter the word here !" type="text" class="input" id="input">
+        <p class="info-text" id="info-text">Type A Word And Press Enter</p>
+
+        <div class="meaning-container" id="meaning-container">    
+            <p>Word Title: <span class="title" id="title"></span></p>
+            <p>Meaning: <span class="meaning" id="meaning"></span></p>
+        </div>
+    </div>
+
+    <script>
+
+        const input = document.getElementById("input");
+        const infoText = document.getElementById("info-text");
+        const meaningContainer = document.getElementById("meaning-container");
+        const title = document.getElementById("title");
+        const meaning = document.getElementById("meaning");
+
+        async function fetchAPI(word) {
+            try{
+                const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+                const result = await fetch(url).then((res) => res.json());
+
+                if (result.title) {
+                  meaningContainer.style.display = "block";
+                  infoText.style.display = "none";
+                  title.innerText = word;
+                  meaning.innerText = "N/A";
+                } 
+                else {
+                  infoText.style.display = "none";
+                  meaningContainer.style.display = "block";
+                  title.innerText = result[0].word;
+                  meaning.innerText = result[0].meanings[0].definitions[0].definition;
+                }
+              } 
+  
+              catch (error) {
+                console.log(error);
+                infoText.innerText = `An error happened, try again later !`;
+              }
+
+        }
+
+        input.addEventListener("keyup", (e) => {
+            if(e.target.value && e.key === "Enter"){
+                fetchAPI(e.target.value);
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -104,6 +104,46 @@ header h1 span {
     padding: 1rem;
 }
 
+/* Menu Button for Mobile */
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 1rem;
+    }
+
+    .navbar.show {
+        display: flex;
+    }
+
+    .nav-item {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -111,23 +151,28 @@ header h1 span {
     <header>
         <nav id="navbarTop">
           <div id="navContainer">
-            <ul class="navbar">
+            <!-- Menu Button for Mobile -->
+            <button id="menuBtn" class="menu-btn">&#9776;</button>
+            
+            <!-- Navigation Links -->
+            <ul class="navbar" id="navLinks">
               <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="index.html">About</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="services.html">Service</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="projects.html">Projects</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>
+            
             <div class="header-text">
               <p>Frontend Developer</p>
               <h1>Hi, I'm <span style="color: burlywood;">Anish Maurya</span></h1>
@@ -135,7 +180,7 @@ header h1 span {
             </div>
           </div>
         </nav>
-        </header>
+      </header>
 
     <div id="service">
         <div class="container">
@@ -163,6 +208,12 @@ header h1 span {
       <div class="footer">
         <p>All Copyrights Reserverd To Anish Maurya, Any Resuse Without Permisson Is Prohibited.</p>
       </div>
+
+      <script>
+        document.getElementById("menuBtn").addEventListener("click", function () {
+          document.getElementById("navLinks").classList.toggle("show");
+        });
+    </script>
 
 </body>
 </html>

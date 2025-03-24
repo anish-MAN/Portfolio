@@ -327,40 +327,86 @@ header h1 span {
     }
 }
 
+/* Menu Button for Mobile */
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 1rem;
+    }
+
+    .navbar.show {
+        display: flex;
+    }
+
+    .nav-item {
+        text-align: center;
+        padding: 0.5rem 0;
+    }
+}
+
+
      </style>
 
     <title>My Portfolio.</title>
 </head>
 <body>
   
-  <header>
-  <nav id="navbarTop">
-    <div id="navContainer">
-      <ul class="navbar">
-        <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="services.html">Service</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact</a>
-        </li>
-      </ul>
-          <div class="header-text">
-            <p>Frontend Developer</p>
-            <h1>Hi, I'm <span style="color: burlywood;">Anish Maurya</span></h1>
-            <p>Mumbai, India</p>
+    <header>
+        <nav id="navbarTop">
+          <div id="navContainer">
+            <!-- Menu Button for Mobile -->
+            <button id="menuBtn" class="menu-btn">&#9776;</button>
+            
+            <!-- Navigation Links -->
+            <ul class="navbar" id="navLinks">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            
+            <div class="header-text">
+              <p>Frontend Developer</p>
+              <h1>Hi, I'm <span style="color: burlywood;">Anish Maurya</span></h1>
+              <p>Mumbai, India</p>
+            </div>
           </div>
-    </div>
-  </nav>
-  </header>
+        </nav>
+      </header>
 
   <div id="about">
     <img src="person.jpg" alt="User-Image.">
@@ -374,7 +420,11 @@ header h1 span {
     <p>All Copyrights Reserverd To Anish Maurya, Any Resuse Without Permisson Is Prohibited.</p>
   </div>
 
-  <script src="portfolio.js"></script>
+  <script>
+      document.getElementById("menuBtn").addEventListener("click", function () {
+        document.getElementById("navLinks").classList.toggle("show");
+      });
+  </script>
 
 </body>
 </html>
